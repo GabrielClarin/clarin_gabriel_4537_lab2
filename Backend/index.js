@@ -1,12 +1,14 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const fetch = require('node-fetch');
-const path = require('path')
+const path = require('path');
 const app = express(); 
+const cors = require('cors');
 
 var jsonParser= bodyParser.json()
 var urlencodedParser = bodyParser.urlencoded({ extended : false})
 
+app.use(cors())
 app.use(urlencodedParser)
 app.use(jsonParser)
 app.use(express.static(path.join(__dirname, '../Frontend')));
